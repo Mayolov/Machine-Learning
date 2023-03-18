@@ -19,12 +19,10 @@ def vectorize_text(text,label):
     return vectorize_layer(text), label
 
 
-
-
-url = "https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz"
+"""url = "https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz"
 dataset = tf.keras.utils.get_file("aclImdb_v1.tar.gz", origin=url, untar=True,
                                   cache_dir=".",cache_subdir="")
-
+"""
 dataset_dir = "/home/mayolo/Machine_Learning/aclImdb"
 
 os.listdir(dataset_dir)
@@ -39,7 +37,8 @@ with open(sample_file) as f :
     print(f.read())
 """
 remove_dir = os.path.join(train_dir, "pos")
-shutil.rmtree(remove_dir)
+# It think this is whats removing this sectionof the file
+# shutil.rmtree(remove_dir)
 batch_size = 32
 seed = 42
 
