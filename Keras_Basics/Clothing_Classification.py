@@ -79,7 +79,13 @@ plt.show()
 
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28,28)),
-    tf.keras.layers.Dense(128, activation = 'relu'),
+    tf.keras.layers.Dense(units=1024, activation='relu'),
+    tf.keras.layers.Dense(units=512, activation = 'relu'),
+    tf.keras.layers.Dense(units=256, activation='relu'),
+    tf.keras.layers.Dense(units=128, activation='relu'),
+    tf.keras.layers.Dense(units=64, activation='relu'),
+    tf.keras.layers.Dense(units=32, activation='relu'),
+    tf.keras.layers.Dense(units=16, activation='relu'),
     tf.keras.layers.Dense(10)
 ])
 
@@ -87,8 +93,8 @@ model.compile(optimizer='adam',
               loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics = ['accuracy'])
 
-# fits the model to the training data
-model.fit(train_images, train_labels, epochs=10)
+# fits the model to the training data, this is how you train the model
+model.fit(train_images, train_labels, epochs=20)
 
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
