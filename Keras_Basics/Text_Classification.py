@@ -216,8 +216,10 @@ examples = [
   "The movie was great!",
   "The movie was okay.",
   "The movie was terrible...",
-  "Bad is what this movie is not.",
+  "Bad is what this movie is not.", # This one failed but still is decent 
   "I wasted my time here.",
+  "love",
+  "love movie"
 ]
 
 print(export_model.predict(examples))
