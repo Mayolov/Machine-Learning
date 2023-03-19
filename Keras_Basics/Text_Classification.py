@@ -48,7 +48,7 @@ with open(sample_file) as f :
 # As the IMDB dataset contains additional folders, 
 # you will remove them before using this utility.
 remove_dir = os.path.join(train_dir, "unsup")
-shutil.rmtree(remove_dir)
+#shutil.rmtree(remove_dir)
 
 batch_size = 32
 seed = 42
@@ -160,7 +160,7 @@ model.compile(
     optimizer='adam',
     metrics=tf.metrics.BinaryAccuracy(threshold=0.0))
 
-epochs = 20
+epochs = 11
 history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)
 
 loss, accuracy =  model.evaluate(test_ds)
@@ -215,7 +215,9 @@ print(accuracy)
 examples = [
   "The movie was great!",
   "The movie was okay.",
-  "The movie was terrible..."
+  "The movie was terrible...",
+  "Bad is what this movie is not.",
+  "I wasted my time here.",
 ]
 
 print(export_model.predict(examples))
