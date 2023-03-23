@@ -1,5 +1,6 @@
 # Creates a model that does sentiment analysis on the IMDB dataset
 import matplotlib.pyplot as plt
+import matplotlib
 import os
 import re
 import shutil
@@ -9,6 +10,8 @@ import numpy as np
 
 from tensorflow.keras import layers
 from tensorflow.keras import losses
+
+matplotlib.use('TkAgg')
 
 #This is preprocessing the text to prevent training-testing skewing
 # it is important to preprocess the data identically at train and test time
@@ -30,7 +33,7 @@ def vectorize_text(text,label):
 dataset = tf.keras.utils.get_file("aclImdb_v1.tar.gz", origin=url, untar=True,
                                   cache_dir=".",cache_subdir="")
 """
-dataset_dir = "/home/mayolo/Machine_Learning/aclImdb"
+dataset_dir = "Machine-Learning/aclImdb"
 
 os.listdir(dataset_dir)
 
@@ -56,7 +59,7 @@ seed = 42
 #text_dataset_from_directory helps prepare the data for training
 #split the raw training statset to 80:20
 raw_train_ds =tf.keras.utils.text_dataset_from_directory(
-    '/home/mayolo/Machine_Learning/aclImdb/train',
+    'Machine-Learning/aclImdb/train',
     batch_size=batch_size,
     validation_split= 0.2,
     subset='training',
@@ -74,7 +77,7 @@ print('Label 1 corresponds to', raw_train_ds.class_names[1])
 #make sure to either sepcify a random seed or pass shuffle=False
 # so there is no overlap between the validation set and training set
 raw_val_ds =tf.keras.utils.text_dataset_from_directory(
-    '/home/mayolo/Machine_Learning/aclImdb/train',
+    'Machine-Learning/aclImdb/train',
     batch_size=batch_size,
     validation_split=.2,
     subset='validation',
@@ -82,7 +85,7 @@ raw_val_ds =tf.keras.utils.text_dataset_from_directory(
 
 #testing dataset
 raw_test_ds = tf.keras.utils.text_dataset_from_directory(
-    '/home/mayolo/Machine_Learning/aclImdb/test',
+    'Machine-Learning/aclImdb/test',
     batch_size=batch_size)
 
 max_features = 10000

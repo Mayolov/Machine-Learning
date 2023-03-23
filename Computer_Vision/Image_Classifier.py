@@ -21,7 +21,7 @@ image_count  = len(list(data_dir.glob('*/*.jpg')))
 #PIL.Image.open(str(roses[0]))
 #PIL.Image.open(str(roses[1]))
 
-batch_size = 32
+batch_size = 16
 img_height = 180
 img_width = 180
 
@@ -96,14 +96,16 @@ num_classes = len(class_names)
 
 model = Sequential([
   layers.Rescaling(1./255, input_shape=(img_height, img_width, 3)),
-  layers.Conv2D(16, 3, padding='same', activation='relu'),
-  layers.MaxPooling2D(),
-  layers.Conv2D(32, 3, padding='same', activation='relu'),
+  layers.Dense(128, activation='relu'),
   layers.MaxPooling2D(),
   layers.Conv2D(64, 3, padding='same', activation='relu'),
   layers.MaxPooling2D(),
+  layers.Conv2D(32, 3, padding='same', activation='relu'),
+  layers.MaxPooling2D(),
+  layers.Conv2D(16, 3, padding='same', activation='relu'),
+  layers.MaxPooling2D(),
   layers.Flatten(),
-  layers.Dense(128, activation='relu'),
+  layers.Dense(8, activation='relu'),
   layers.Dense(num_classes)
 ])
 
