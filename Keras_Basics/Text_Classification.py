@@ -12,7 +12,7 @@ from tensorflow.keras import layers
 from tensorflow.keras import losses
 
 matplotlib.use('TkAgg')
-
+#testing
 #This is preprocessing the text to prevent training-testing skewing
 # it is important to preprocess the data identically at train and test time
 # the html tags in the text wont be removed in the TextVectorization layer
