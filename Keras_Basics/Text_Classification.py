@@ -11,7 +11,7 @@ import numpy as np
 from tensorflow.keras import layers
 from tensorflow.keras import losses
 
-matplotlib.use('TkAgg')
+#matplotlib.use('TkAgg')
 #testing
 #This is preprocessing the text to prevent training-testing skewing
 # it is important to preprocess the data identically at train and test time
