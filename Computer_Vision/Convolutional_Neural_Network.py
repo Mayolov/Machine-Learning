@@ -1,7 +1,9 @@
 import tensorflow as tf
-
+import os
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
+print(tf.test.gpu_device_name())
+
 
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 
@@ -30,7 +32,6 @@ model.add(layers.MaxPooling2D((2,2)))
 model.add(layers.Conv2D(64, (3,3), activation='relu'))
 model.add(layers.MaxPooling2D((2,2)))
 model.add(layers.Conv2D(64,(3,3),activation = 'relu'))
-model.add(layers.MaxPooling2D((2,2)))
 
 
 # display architecture
