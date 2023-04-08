@@ -25,6 +25,7 @@ for i in range(25):
     # which is why you need the extra index
     plt.xlabel(class_names[train_labels[i][0]])
 plt.show()
+plt.close()
 
 model = models.Sequential()
 model.add(layers.Conv2D(32,(3,3), activation = 'relu', input_shape=(32,32,3)))
@@ -32,7 +33,6 @@ model.add(layers.MaxPooling2D((2,2)))
 model.add(layers.Conv2D(64, (3,3), activation='relu'))
 model.add(layers.MaxPooling2D((2,2)))
 model.add(layers.Conv2D(64,(3,3),activation = 'relu'))
-
 
 # display architecture
 print(model.summary())

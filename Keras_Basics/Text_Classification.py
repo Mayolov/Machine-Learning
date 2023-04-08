@@ -1,6 +1,8 @@
 # Creates a model that does sentiment analysis on the IMDB dataset
+import PIL
+from PIL import ImageTk
+from PIL import Image
 import matplotlib.pyplot as plt
-import matplotlib
 import os
 import re
 import shutil
@@ -11,7 +13,7 @@ import numpy as np
 from tensorflow.keras import layers
 from tensorflow.keras import losses
 
-#matplotlib.use('TkAgg')
+matplotlib.use('TkAgg')
 #testing
 #This is preprocessing the text to prevent training-testing skewing
 # it is important to preprocess the data identically at train and test time

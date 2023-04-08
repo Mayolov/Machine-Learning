@@ -79,9 +79,6 @@ plt.show()
 
 model = tf.keras.Sequential([
     tf.keras.layers.Flatten(input_shape=(28,28)),
-    tf.keras.layers.Dense(units=1024, activation='relu'),
-    tf.keras.layers.Dense(units=512, activation = 'relu'),
-    tf.keras.layers.Dense(units=256, activation='relu'),
     tf.keras.layers.Dense(units=128, activation='relu'),
     tf.keras.layers.Dense(units=64, activation='relu'),
     tf.keras.layers.Dense(units=32, activation='relu'),
